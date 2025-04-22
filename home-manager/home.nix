@@ -15,6 +15,7 @@
 		ghostty
 		nushell
 		zoxide
+		delta # Pager (like less).
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.

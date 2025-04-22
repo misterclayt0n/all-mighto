@@ -4,5 +4,9 @@ name  = "misterclayt0n"
 
 [ui]
 default-command = "status"
-pager = "none"
+pager = "delta"
+paginate = "auto"
+
+[ui.diff]
+format = "git"
 
