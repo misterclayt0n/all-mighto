@@ -1,3 +1,2 @@
 # Zoxide setup
-zoxide init nushell | save -f ~/.zoxide.nu
-source ~/.zoxide.nu
+source ~/.config/nushell/zoxide.nu

@@ -19,8 +19,13 @@
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
 		inputs.zen-browser.packages."${system}".default
-
 	];
+
+	# Generate zoxide script for nushell.
+	xdg.configFile."nushell/zoxide.nu".source =
+		pkgs.runCommand "zoxide.nu" {} ''
+		${pkgs.zoxide}/bin/zoxide init nushell --cmd cd > $out
+		'';                 
 
 	home.stateVersion = "24.11";
 

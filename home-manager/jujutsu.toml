@@ -4,4 +4,5 @@ name  = "misterclayt0n"
 
 [ui]
 default-command = "status"
+pager = "none"
 
