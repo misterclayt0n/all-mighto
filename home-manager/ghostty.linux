@@ -1,0 +1,4 @@
+theme = gruvbox-material
+gtk-adwaita = false
+
+keybind = ctrl+shift+w=close_surface
