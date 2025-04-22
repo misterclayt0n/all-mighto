@@ -1,0 +1,29 @@
+[[language]]
+name = "rust"
+auto-format = false
+
+[[language]]
+name = "zig"
+auto-format = false
+
+[[language]]
+name = "go"
+auto-format = false
+
+[[language]]
+name = "c"
+auto-format = false
+
+# [language.debugger]
+# name = "lldb-vscode"
+# transport = "stdio"
+
+# [[language.debugger.templates]]
+# name = "binary (terminal)"
+# request = "launch"
+# completion = [ { name = "binary", completion = "filename" } ]
+# args = { runInTerminal = true, program = "{0}" }
+
+[[language]]
+name = "odin"
+auto-format = false

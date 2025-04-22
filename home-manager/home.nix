@@ -59,5 +59,10 @@
 	    # This writes ~/.config/jj/config.toml from the jujutsu.toml file.
 	    "jj/config.toml".source = ./jujutsu.toml;
 	    "ghostty/config".text = builtins.readFile ./ghostty.linux;
+
+	    # Helix.
+	    "helix/config.toml".source = ./helix/config.toml;
+	    "helix/languages.toml".source = ./helix/languages.toml;
+	    "helix/themes".source = ./helix/themes;
 	};
 }
