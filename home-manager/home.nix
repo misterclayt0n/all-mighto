@@ -13,6 +13,8 @@
 		jujutsu
 		gh
 		ghostty
+		nushell
+		zoxide
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
@@ -37,6 +39,14 @@
 		userName = "misterclayt0n";
 		userEmail = "daviarantes13@gmail.com";
 		extraConfig.init.defaultBranch = "main";
+	};
+
+	# Nushell.
+	programs.nushell = {
+		enable = true;
+		package = pkgs.nushell;
+		envFile.source    = ./nushell/env.nu;
+		configFile.source = ./nushell/config.nu;
 	};
 
 	xdg.configFile = {

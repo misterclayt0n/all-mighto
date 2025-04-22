@@ -1,4 +1,5 @@
-theme = gruvbox-material
+command = bash -l -c nu
+theme = GruvboxDarkHard
 gtk-adwaita = false
 
 keybind = ctrl+shift+w=close_surface
