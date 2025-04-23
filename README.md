@@ -8,6 +8,6 @@
   - [x] C
   - [x] The devil
   - [x] Python
-  - [ ] Odin
+  - [x] Odin
   - [ ] Zig
 - [ ] Extend nushell config.

@@ -7,6 +7,7 @@
 		./languages/c.nix
 		./languages/js.nix
 		./languages/python.nix
+		./languages/odin.nix
 	];
 
 	home.username = "mister";
