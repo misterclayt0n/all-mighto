@@ -29,6 +29,9 @@
 		ani-cli
 		starship
 		zed-editor
+		emacs
+		iosevka
+		slack
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
@@ -92,5 +95,11 @@
 			"zed/tasks.json".source = ./zed/tasks.json;
 			"zed/keymap.json".source = ./zed/keymap.json;
 			"zed/themes".source = ./zed/themes;
+
+			# Doom emacs.
+			"doom/config.el".source = ./doom/config.el;
+			"doom/init.el".source = ./doom/init.el;
+			"doom/packages.el".source = ./doom/packages.el;
+			"doom/images".source = ./doom/images;
 	};
 }
