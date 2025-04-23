@@ -19,8 +19,8 @@
 		ghostty
 		nushell
 		zoxide
+		vesktop # Discord client.
 		delta # Pager (like less).
-		discord
 		ani-cli
 		starship
 
