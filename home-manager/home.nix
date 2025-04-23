@@ -28,6 +28,7 @@
 		delta # Pager (like less).
 		ani-cli
 		starship
+		zed-editor
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
@@ -85,5 +86,11 @@
 
 			# Starship.
 			"starship.toml".source = ./starship.toml;
+
+			# Zed.
+			"zed/settings.json".source = ./zed/settings.json;
+			"zed/tasks.json".source = ./zed/tasks.json;
+			"zed/keymap.json".source = ./zed/keymap.json;
+			"zed/themes".source = ./zed/themes;
 	};
 }
