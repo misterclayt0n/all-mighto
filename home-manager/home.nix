@@ -18,6 +18,7 @@
 		delta # Pager (like less).
 		discord
 		ani-cli
+		starship
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
@@ -29,6 +30,12 @@
 		pkgs.runCommand "zoxide.nu" {} ''
 		${pkgs.zoxide}/bin/zoxide init nushell --cmd cd > $out
 		'';                 
+	
+	# Generate starship script for nushell.
+	xdg.configFile."nushell/starship.nu".source =
+		pkgs.runCommand "starship.nu" {} ''
+		${pkgs.starship}/bin/starship init nu > $out
+		'';
 
 	home.stateVersion = "24.11";
 
@@ -66,5 +73,8 @@
 	    "helix/config.toml".source = ./helix/config.toml;
 	    "helix/languages.toml".source = ./helix/languages.toml;
 	    "helix/themes".source = ./helix/themes;
+
+			# Starship.
+			"starship.toml".source = ./starship.toml;
 	};
 }

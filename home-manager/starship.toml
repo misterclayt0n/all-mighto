@@ -1,0 +1,34 @@
+add_newline = false
+
+format = "$username@$hostname $directory$character"
+
+right_format = """ $time """
+
+[username]
+format = "$user"
+style_user = "bold"
+style_root = "bold"
+show_always = true
+
+[hostname]
+ssh_only = false
+disabled = false
+style = "dimmed"
+format = "$hostname"
+
+[directory]
+format             = "[$path]($style) "
+truncation_length  = 1
+style              = "blue"
+
+[character]
+success_symbol = "[%](bold)"
+error_symbol = "[#](bold)"
+format = "$symbol "
+
+[time]
+disabled = false
+format = "[$time]($style)"
+time_format = "%H:%M:%S"
+style = "italic dimmed white"
+
