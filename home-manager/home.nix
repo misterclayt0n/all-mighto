@@ -33,6 +33,8 @@
 		emacs
 		iosevka
 		slack
+		apple-cursor
+		direnv
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
