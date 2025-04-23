@@ -8,6 +8,7 @@
 		./languages/js.nix
 		./languages/python.nix
 		./languages/odin.nix
+		./languages/zig.nix
 	];
 
 	home.username = "mister";
