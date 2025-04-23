@@ -6,6 +6,7 @@
 		./languages/go.nix
 		./languages/c.nix
 		./languages/js.nix
+		./languages/python.nix
 	];
 
 	home.username = "mister";

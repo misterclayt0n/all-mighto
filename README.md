@@ -3,11 +3,11 @@
 ### TODO
 - [ ] Setup proper editors.
 - [ ] Language setup:
-  - [ ] Rust
-  - [ ] Go
-  - [ ] C
-  - [ ] The devil
-  - [ ] Python
+  - [x] Rust
+  - [x] Go
+  - [x] C
+  - [x] The devil
+  - [x] Python
   - [ ] Odin
   - [ ] Zig
 - [ ] Extend nushell config.
