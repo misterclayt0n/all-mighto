@@ -4,6 +4,7 @@
 	imports = [
 		./languages/rust.nix
 		./languages/go.nix
+		./languages/c.nix
 	];
 
 	home.username = "mister";
