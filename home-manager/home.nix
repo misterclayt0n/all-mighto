@@ -3,6 +3,7 @@
 {
 	imports = [
 		./languages/rust.nix
+		./languages/go.nix
 	];
 
 	home.username = "mister";
