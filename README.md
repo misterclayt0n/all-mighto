@@ -2,4 +2,12 @@
 
 ### TODO
 - [ ] Setup proper editors.
+- [ ] Language setup:
+  - [ ] Rust
+  - [ ] Go
+  - [ ] C
+  - [ ] The devil
+  - [ ] Python
+  - [ ] Odin
+  - [ ] Zig
 - [ ] Extend nushell config.
