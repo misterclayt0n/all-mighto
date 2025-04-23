@@ -1,6 +1,10 @@
 { config, pkgs, system, inputs, ... }:
 
 {
+	imports = [
+		./languages/rust.nix
+	];
+
 	home.username = "mister";
 	home.homeDirectory = "/home/mister";
 
