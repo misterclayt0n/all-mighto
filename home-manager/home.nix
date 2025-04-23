@@ -5,6 +5,7 @@
 		./languages/rust.nix
 		./languages/go.nix
 		./languages/c.nix
+		./languages/js.nix
 	];
 
 	home.username = "mister";
