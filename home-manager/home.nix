@@ -25,7 +25,7 @@
 		ghostty
 		nushell
 		zoxide
-		vesktop # Discord client.
+		discord
 		delta # Pager (like less).
 		ani-cli
 		starship
@@ -37,6 +37,7 @@
 		nix-direnv
 		direnv
 		obs-studio
+		bat
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
