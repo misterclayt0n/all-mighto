@@ -10,3 +10,5 @@ paginate = "auto"
 [ui.diff]
 format = "git"
 
+[git]
+auto-local-bookmark = true

@@ -98,7 +98,7 @@
   users.users.mister = {
     isNormalUser = true;
     description = "mister";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird

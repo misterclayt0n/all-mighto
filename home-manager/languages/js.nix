@@ -8,5 +8,6 @@
     typescript-language-server
     yarn
     deno
+		pnpm
 	];
 }
