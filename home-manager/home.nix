@@ -79,7 +79,9 @@
 		package = pkgs.gitFull; #GUI and SSH support.
 		userName = "misterclayt0n";
 		userEmail = "daviarantes13@gmail.com";
-		extraConfig.init.defaultBranch = "main";
+		extraConfig = {
+			init.defaultBranch = "main";
+		};
 	};
 
 	# Nushell.
