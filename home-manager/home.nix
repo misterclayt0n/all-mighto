@@ -73,6 +73,15 @@
 	# Programs setup.
 	#
 
+	programs.ssh = {
+	  enable = true;               # creates ~/.ssh & manages config
+	  extraConfig = ''
+	    Host github.com
+	      IdentityFile ~/.ssh/id_ed25519
+	      IdentitiesOnly yes
+	  '';
+	};
+	
 	# Git.
 	programs.git = {
 		enable = true;
@@ -82,6 +91,11 @@
 		extraConfig = {
 			init.defaultBranch = "main";
 		};
+	};
+
+	programs.gh = {
+	  enable = true;
+	  settings.git_protocol = "ssh";
 	};
 
 	# Nushell.

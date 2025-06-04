@@ -1,2 +1,2 @@
 source ~/.config/nushell/zoxide.nu
-source ~/.config/nushell/starship.nu
+# source ~/.config/nushell/starship.nu
