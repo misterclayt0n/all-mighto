@@ -19,7 +19,6 @@
 		neofetch # Nix btw
 		fastfetch
 		zip
-		tree
 		jujutsu
 		gh
 		ghostty
@@ -47,6 +46,7 @@
 		unzip
 		code-cursor
 		postgresql
+		eza
 		nil # Nix language server.
 
 		# Nix related.
