@@ -2,12 +2,12 @@
 
 {
 	home.packages = with pkgs; [
-    nodejs_23
+    # nodejs_23
     bun
     typescript
     typescript-language-server
     yarn
-    deno
+    # deno
 		pnpm
 	];
 }
