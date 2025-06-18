@@ -7,5 +7,6 @@
 		clippy
 		cargo
 		rust-analyzer
+		cargo-expand
 	];
 }
