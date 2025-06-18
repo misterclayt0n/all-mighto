@@ -134,7 +134,6 @@
     neovim
     helix
   ];
-  environment.variables.EDITOR = "hx";
   environment.variables.EDITOR = "nvim";
 
   # Some programs need SUID wrappers, can be configured further or are
