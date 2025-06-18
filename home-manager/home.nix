@@ -50,6 +50,7 @@
 		nil # Nix language server.
 		yazi
 		mpv
+		google-chrome
 
 		# Nix related.
 		nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
