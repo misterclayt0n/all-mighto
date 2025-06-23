@@ -15,9 +15,13 @@
 			url = "github:youwen5/zen-browser-flake"; # The nice version of zen flake.
 			inputs.nixpkgs.follows = "nixpkgs"; 
 		};
+    nvf = {
+			url = "github:notashelf/nvf";
+			inputs.nixpkgs.follows = "nixpkgs"; 
+		};
 	};
 
-	outputs = inputs@{ nixpkgs, home-manager, zen-browser, ... }: {
+	outputs = inputs@{ nixpkgs, home-manager, zen-browser, nvf, ... }: {
 		nixosConfigurations = {
 			nixos = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
