@@ -11,22 +11,22 @@
 
       base16-colors = {
         # Gruvbox like theme with less colors.
-        base00 = "262626"; 
-        base01 = "3a3a3a"; 
-        base02 = "4e4e4e"; 
-        base03 = "8a8a8a"; 
-        base04 = "949494"; 
-        base05 = "dab997"; 
-        base06 = "d1b897"; 
-        base07 = "ebdbb2"; 
-        base08 = "d1b897"; 
-        base09 = "d1b897"; 
-        base0A = "d1b897"; 
-        base0B = "d1b897"; 
-        base0C = "85ad85"; 
-        base0D = "83adad"; 
-        base0E = "d485ad"; 
-        base0F = "d65d0e"; 
+        base00 = "262626"; # ----
+        base01 = "3a3a3a"; # ---
+        base02 = "4e4e4e"; # --
+        base03 = "8a8a8a"; # -
+        base04 = "949494"; # +
+        base05 = "dab997"; # ++
+        base06 = "d1b897"; # +++
+        base07 = "ebdbb2"; # ++++
+        base08 = "d1b897"; # red
+        base09 = "d1b897"; # orange
+        base0A = "d1b897"; # yellow
+        base0B = "afaf00"; # green
+        base0C = "d1b897"; # aqua/cyan
+        base0D = "d1b897"; # blue
+        base0E = "d485ad"; # purple
+        base0F = "d65d0e"; # brown
       };
     };
 
@@ -53,7 +53,7 @@
     diagnostics = {
       enable = true;
       config = {
-        virtual_text = true;
+        virtual_text = false;
       };
     };
 
@@ -91,6 +91,7 @@
       signcolumn = "no";
       undofile = true;
       shortmess = "I";
+      guicursor = "";
     };
 
     lsp = {
@@ -98,10 +99,19 @@
       formatOnSave = false;
       lspkind.enable = false;
       lspsaga.enable = false;
-      trouble.enable = true;
       otter-nvim.enable = true;
       nvim-docs-view.enable = true;
-      mappings.format = "<leader>fm";
+      mappings = {
+        format = "<leader>fm";
+        openDiagnosticFloat = "<leader>e";
+        codeAction = "<leader>ca";
+        renameSymbol = "<leader>cr";
+      };
+
+      trouble = {
+        enable = true;
+        mappings.documentDiagnostics = "<leader>cd";
+      };
     };
 
     binds = {
