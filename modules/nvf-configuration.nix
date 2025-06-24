@@ -6,8 +6,28 @@
   vim = {
     theme = {
       enable = true;
-      name = "gruvbox";
+      name = "base16";
       style = "dark";
+
+      base16-colors = {
+        # Gruvbox like theme with less colors.
+        base00 = "262626"; 
+        base01 = "3a3a3a"; 
+        base02 = "4e4e4e"; 
+        base03 = "8a8a8a"; 
+        base04 = "949494"; 
+        base05 = "dab997"; 
+        base06 = "d1b897"; 
+        base07 = "ebdbb2"; 
+        base08 = "d1b897"; 
+        base09 = "d1b897"; 
+        base0A = "d1b897"; 
+        base0B = "d1b897"; 
+        base0C = "85ad85"; 
+        base0D = "83adad"; 
+        base0E = "d485ad"; 
+        base0F = "d65d0e"; 
+      };
     };
 
     vimAlias = true; # To make "vim" open nvf instead of regular vim.
