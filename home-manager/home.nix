@@ -62,6 +62,7 @@
     ripgrep
     wl-clipboard
     imagemagick
+    tokei
 
     # Nix related.
     nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
