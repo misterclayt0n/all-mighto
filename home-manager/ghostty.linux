@@ -3,3 +3,4 @@ theme = GruvboxDarkHard
 gtk-adwaita = false
 
 keybind = ctrl+shift+w=close_surface
+keybind = ctrl+shift+h=new_split:down

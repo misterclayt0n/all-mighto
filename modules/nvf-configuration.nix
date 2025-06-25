@@ -86,9 +86,9 @@
       scrolloff = 4;
 
       # Juniors are the only ones who need line numbers btw.
-      number = false;
+      number = true;
       relativenumber = false;
-      signcolumn = "no";
+      # signcolumn = "yes";
       undofile = true;
       shortmess = "I";
       guicursor = "";
@@ -102,10 +102,12 @@
       otter-nvim.enable = true;
       nvim-docs-view.enable = true;
       mappings = {
-        format = "<leader>fm";
         openDiagnosticFloat = "<leader>e";
         codeAction = "<leader>ca";
         renameSymbol = "<leader>cr";
+        goToDeclaration = "gr";
+        goToDefinition = "gd";
+        goToType = "gt";
       };
 
       trouble = {
@@ -172,6 +174,7 @@
         dap.enable = true;
       };
       nu.enable = true;
+      haskell.enable = true;
 
       #
       # The rest.
@@ -210,9 +213,8 @@
       { key = "<C-w>p"; mode = "n"; silent = true; action = ":bprev<CR>"; }
       { key = "<C-w>n"; mode = "n"; silent = true; action = ":bnext<CR>"; }
       { key = "<leader>bd"; mode = "n"; silent = true; action = ":bdelete<CR>"; }
-      { key = "<leader>y"; mode = ["n" "v"]; silent = true; action = "\"+y"; }
-      { key = "<leader>Y"; mode = ["n" "v"]; silent = true; action = "\"+Y"; }
+      { key = "<leader>y"; mode = [ "n" "v" ]; silent = true; action = "\"+y"; }
+      { key = "<leader>Y"; mode = [ "n" "v" ]; silent = true; action = "\"+Y"; }
     ];
   };
 }
-
