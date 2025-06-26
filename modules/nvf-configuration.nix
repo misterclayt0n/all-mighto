@@ -1,6 +1,6 @@
 # TODO: Add better markdown support.
 
-{ ... }:
+{ pkgs, ... }:
 
 {
   vim = {
@@ -102,7 +102,7 @@
       otter-nvim.enable = true;
       nvim-docs-view.enable = true;
       mappings = {
-        openDiagnosticFloat = "<leader>e";
+        openDiagnosticFloat = "<leader>r";
         codeAction = "<leader>ca";
         renameSymbol = "<leader>cr";
         goToDeclaration = "gr";
@@ -216,5 +216,20 @@
       { key = "<leader>y"; mode = [ "n" "v" ]; silent = true; action = "\"+y"; }
       { key = "<leader>Y"; mode = [ "n" "v" ]; silent = true; action = "\"+Y"; }
     ];
+
+    lazy.plugins."lean.nvim" = {
+      package      = pkgs.vimPlugins.lean-nvim;
+      setupModule  = "lean";         # calls require('lean').setup(...)
+      setupOpts    = { 
+        mappings = false; 
+        infoview.autoopen = false;
+      };
+      event = [
+        { event = "BufReadPre"; pattern = "*.lean"; }
+        { event = "BufNewFile"; pattern = "*.lean"; }
+      ];
+    };
   };
 }
+
+
