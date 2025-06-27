@@ -32,9 +32,16 @@
 
     vimAlias = true; # To make "vim" open nvf instead of regular vim.
     mini.statusline.enable = true;
-    comments.comment-nvim.enable = true;
     filetree.neo-tree.enable = true;
 
+    comments.comment-nvim = {
+      enable = true;
+      mappings = {
+        toggleCurrentLine = "<C-c>";
+        toggleSelectedLine = "<C-c>";
+      };
+    };
+ 
     telescope = {
       enable = true;
       mappings = {
