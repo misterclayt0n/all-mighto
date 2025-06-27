@@ -91,7 +91,7 @@
       # signcolumn = "yes";
       undofile = true;
       shortmess = "I";
-      guicursor = "";
+      # guicursor = "";
     };
 
     lsp = {
@@ -117,7 +117,7 @@
     };
 
     binds = {
-      whichKey.enable = true;
+      # whichKey.enable = true;
       cheatsheet.enable = true;
     };
 
