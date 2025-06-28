@@ -15,6 +15,7 @@
     ./languages/python.nix
     ./languages/odin.nix
     ./languages/zig.nix
+    ./languages/lean.nix
     inputs.nvf.homeManagerModules.default
   ];
 
