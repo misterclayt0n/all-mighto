@@ -1,5 +1,5 @@
 command = bash -l -c nu
-theme = GruvboxDarkHard
+theme = GruvboxLight
 gtk-adwaita = false
 font-family = Iosevka 
 font-family-bold = Iosevka Bold

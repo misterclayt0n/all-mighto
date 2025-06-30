@@ -2,7 +2,6 @@
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
 
-
 (setq doom-font (font-spec :family "Iosevka" :size 16 :weight 'medium))
 
 (custom-set-faces
