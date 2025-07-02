@@ -1,1 +1,4 @@
 theme = "gruvbox_light_soft"
+
+[keys.insert]
+esc = ["move_char_left", "normal_mode"]
