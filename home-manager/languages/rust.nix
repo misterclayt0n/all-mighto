@@ -8,5 +8,6 @@
 		cargo
 		rust-analyzer
 		cargo-expand
+		dioxus-cli
 	];
 }
