@@ -30,6 +30,7 @@
     jujutsu
     gh
     ghostty
+    kitty
     nushell
     zoxide
     discord
