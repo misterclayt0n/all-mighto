@@ -42,6 +42,7 @@
     iosevka
     slack
     apple-cursor
+    xcursor-pro
     nix-direnv
     direnv
     obs-studio
