@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, niri, ... }:
 
 {
   imports =
@@ -20,6 +20,10 @@
 
   # Enable flakes.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  programs.niri = {
+    enable = true;
+  };
 
   nix.settings = {
     max-jobs = "auto";

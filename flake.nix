@@ -19,9 +19,13 @@
 			url = "github:notashelf/nvf";
 			inputs.nixpkgs.follows = "nixpkgs"; 
 		};
+		niri = {
+			url = "github:sodiboo/niri-flake";
+			inputs.nixpkgs.follows = "nixpkgs"; 
+		};
 	};
 
-	outputs = inputs@{ nixpkgs, home-manager, zen-browser, nvf, ... }: {
+	outputs = inputs@{ nixpkgs, home-manager, zen-browser, nvf, niri, ... }: {
 		nixosConfigurations = {
 			nixos = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
