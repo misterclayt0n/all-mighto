@@ -23,9 +23,13 @@
 			url = "github:sodiboo/niri-flake";
 			inputs.nixpkgs.follows = "nixpkgs"; 
 		};
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 	};
 
-	outputs = inputs@{ nixpkgs, home-manager, zen-browser, nvf, niri, ... }: {
+	outputs = inputs@{ nixpkgs, home-manager, zen-browser, nvf, niri, quickshell, ... }: {
 		nixosConfigurations = {
 			nixos = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";

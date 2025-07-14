@@ -70,6 +70,25 @@
     spotify
     fuzzel
 
+    # Quickshell stuff
+    qt6Packages.qt5compat
+    libsForQt5.qt5.qtgraphicaleffects
+    kdePackages.qtbase
+    kdePackages.qtdeclarative
+    ddcutil
+    brightnessctl
+    app2unit
+    cava
+    networkmanager # For nmcli command-line tool
+    lm_sensors # Note the underscore
+    fish
+    aubio
+    material-symbols # Font
+    nerd-fonts.jetbrains-mono # Jetbrains Mono Nerd Font
+    grim
+    swappy
+    libqalculate
+
     # Nix related.
     nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
     inputs.zen-browser.packages."${system}".default
@@ -86,6 +105,11 @@
     		'';
 
   home.stateVersion = "24.11";
+
+  # services.quickshell = {
+    # enable = true;
+    # config = ./quickshell-config.qml;
+  # };
 
   xdg.enable = true;
   # Let home Manager install and manage itself.
@@ -107,6 +131,10 @@
   programs.nvf = {
     enable = true;
     settings = import ../modules/nvf-configuration.nix;
+  };
+
+  programs.quickshell = {
+    enable = true;
   };
 
   # Git.
