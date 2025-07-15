@@ -136,7 +136,7 @@
     vim
     wget
     neovim
-    helix
+    # helix
   ];
   environment.variables.EDITOR = "helix";
 
