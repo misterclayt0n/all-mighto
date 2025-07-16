@@ -140,19 +140,29 @@
   ];
   environment.variables.EDITOR = "helix";
 
-  # Add this section for NVIDIA drivers and Vulkan
-  hardware.opengl.enable = true;
-  # hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true; # Needed for 32-bit Steam games
-  hardware.nvidia.powerManagement.enable = true;
-  hardware.nvidia.open = false; # Set to true for open-source drivers if applicable to your GPU
-  hardware.nvidia.nvidiaSettings = true; # Install nvidia-settings for configuration
-  hardware.nvidia.prime = {
-    offload.enable = true;
-    sync.enable = false;
-    # busId = "PCI:01:00:0"; # Uncomment and replace with your dGPU's bus ID if you have a PRIME setup and encounter issues
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
   };
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable; # Or `production` or specific version if needed
+
+  # hardware.nvidia.prime = {
+  #   sync.enable = true;
+  #   amdgpuBusId = "PCI:"
+  # };
+
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.open = false;
+
+  # hardware.nvidia.powerManagement.enable = true;
+  # hardware.nvidia.open = false; # Set to true for open-source drivers if applicable to your GPU
+  # hardware.nvidia.nvidiaSettings = true; # Install nvidia-settings for configuration
+  # hardware.nvidia.prime = {
+    # offload.enable = true;
+    # sync.enable = false;
+    # busId = "PCI:01:00:0"; # Uncomment and replace with your dGPU's bus ID if you have a PRIME setup and encounter issues
+  # };
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable; # Or `production` or specific version if needed
 
   # programs.steam.enable = true; # Enable Steam package on NixOS
 
