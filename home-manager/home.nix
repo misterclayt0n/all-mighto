@@ -92,8 +92,6 @@
     # Nix related.
     nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
     inputs.zen-browser.packages."${system}".default
-
-    inputs.helix-master.packages.${"x86_64-linux"}.default
   ];
 
   # Generate zoxide script for nushell.

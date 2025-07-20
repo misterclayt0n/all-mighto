@@ -27,13 +27,9 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-		# Temp stuff don't think about it too much
-    helix-master.url = "github:helix-editor/helix/master";
-    helix-master.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = inputs@{ nixpkgs, home-manager, zen-browser, nvf, niri, quickshell, helix-master, ... }: {
+	outputs = inputs@{ nixpkgs, home-manager, zen-browser, nvf, niri, quickshell, ... }: {
 		nixosConfigurations = {
 			nixos = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
