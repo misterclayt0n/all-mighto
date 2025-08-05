@@ -79,12 +79,12 @@
     brightnessctl
     app2unit
     cava
-    networkmanager # For nmcli command-line tool
-    lm_sensors # Note the underscore
+    networkmanager
+    lm_sensors
     fish
     aubio
-    material-symbols # Font
-    nerd-fonts.jetbrains-mono # Jetbrains Mono Nerd Font
+    material-symbols # Font btw.
+    nerd-fonts.jetbrains-mono
     grim
     swappy
     libqalculate
@@ -92,6 +92,9 @@
     # Nix related.
     nix-output-monitor # It provides the command `nom` works just like `nix` with more details log output.
     inputs.zen-browser.packages."${system}".default
+    brave
+    lazydocker
+    vivaldi
   ];
 
   # Generate zoxide script for nushell.

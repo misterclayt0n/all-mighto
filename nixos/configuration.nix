@@ -18,6 +18,9 @@
   boot.loader.grub.devices = [ "nodev" ];
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Docker shit
+  virtualisation.docker.enable = true;
+
   # Enable flakes.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -116,7 +119,7 @@
   users.users.mister = {
     isNormalUser = true;
     description = "mister";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
