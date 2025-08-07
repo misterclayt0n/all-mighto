@@ -12,6 +12,6 @@ b   = [":insert-output echo 'β'"]
 y   = [":insert-output echo 'γ'"]
 '[' = [":insert-output echo '⟨'"]
 ']' = [":insert-output echo '⟩'"]
-'.' = [":insert-output echo '⋅'"]
+'.' = [":insert-output echo '·'"]
 x   = [":insert-output echo '×'"]
 
