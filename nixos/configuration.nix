@@ -28,6 +28,8 @@
     enable = true;
   };
 
+  programs.nix-ld.enable = true;
+
   nix.settings = {
     max-jobs = "auto";
     keep-outputs = true;
@@ -77,6 +79,12 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  
+  # services.displayManager.gdm.enable = true;
+  # services.desktopManager.gnome.enable = true;
+  
+  # services.displayManager.cosmic-greeter.enable = true;
+  # services.desktopManager.cosmic.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
