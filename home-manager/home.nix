@@ -66,7 +66,6 @@
     wl-clipboard
     imagemagick
     tokei
-    steam
     spotify
     fuzzel
 
