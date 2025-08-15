@@ -12,6 +12,7 @@
 
         editor = {
           shell = [ "nu" "-c" ];
+          file-picker.hidden = false;
         };
 
         keys = {
