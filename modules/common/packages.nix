@@ -8,6 +8,7 @@
     iosevka
     wl-clipboard
     apple-cursor
+    discord
   ];
 }
 
