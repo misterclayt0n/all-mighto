@@ -1,0 +1,29 @@
+{ pkgs, ... }:
+{
+  home-manager.sharedModules = [{
+    home.packages = with pkgs; [ jujutsu ];
+
+    programs.jujutsu = {
+      enable  = true;
+      settings = {
+        user = {
+          email = "daviarantes13@gmail.com";
+          name  = "misterclayt0n";
+        };
+
+        ui = {
+          "default-command" = "status";
+          pager             = "delta";
+          paginate          = "auto";
+          "diff-formatter"  = ":git";
+          editor            = "hx";
+        };
+
+        git = {
+          "auto-local-bookmark" = true;
+        };
+      };
+    };
+  }];
+}
+

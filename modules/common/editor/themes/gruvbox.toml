@@ -1,0 +1,120 @@
+inherits = "gruvbox"
+
+"annotation"                     = { fg = "fg1" }
+"attribute"                      = { fg = "fg1", modifiers = ["italic"] }
+"comment"                        = { fg = "gray", modifiers = ["italic"] }
+"constant"                       = { fg = "fg1" }
+"constant.character"             = { fg = "fg1" }
+"constant.character.escape"      = { fg = "fg1" }
+"constant.macro"                 = { fg = "fg1" }
+"constructor"                    = { fg = "fg1" }
+"definition"                     = { underline = { color = "fg1" } }
+"diagnostic"                     = { underline = { color = "orange1", style = "curl" } }
+"diagnostic.deprecated"          = { modifiers = ["crossed_out"] }
+"diagnostic.error"               = { underline = { color = "red1", style = "curl" } }
+"diagnostic.hint"                = { underline = { color = "fg1", style = "curl" } }
+"diagnostic.info"                = { underline = { color = "fg1", style = "curl" } }
+"diagnostic.warning"             = { underline = { color = "yellow1", style = "curl" } }
+"error"                          = { fg = "red1" }
+"hint"                           = { fg = "fg1" }
+"info"                           = { fg = "fg1" }
+"warning"                        = { fg = "yellow1" }
+"diff.delta"                     = { fg = "yellow1" }
+"diff.minus"                     = { fg = "red1" }
+"diff.plus"                      = { fg = "green1" }
+"function"                       = { fg = "fg1" }
+"function.builtin"               = { fg = "fg1" }
+"function.macro"                 = { fg = "fg1" }
+"keyword"                        = { fg = "red1" }
+"keyword.control.import"         = { fg = "red1" }
+"label"                          = { fg = "fg1" }
+"markup.bold"                    = { modifiers = ["bold"] }
+"markup.heading"                 = "fg1"
+"markup.italic"                  = { modifiers = ["italic"] }
+"markup.link.text"               = "fg1"
+"markup.link.url"                = { fg = "green1", modifiers = ["underlined"] }
+"markup.raw"                     = "fg1"
+"markup.strikethrough"           = { modifiers = ["crossed_out"] }
+"module"                         = { fg = "fg1" }
+"namespace"                      = { fg = "fg1" }
+"operator"                       = { fg = "fg1" }
+"punctuation"                    = { fg = "fg1" }
+"special"                        = { fg = "fg1" }
+"string"                         = { fg = "green1" }
+"string.regexp"                  = { fg = "green1" }
+"string.special"                 = { fg = "green1" }
+"string.symbol"                  = { fg = "green1" }
+"tag"                            = { fg = "fg1" }
+"type"                           = { fg = "fg1" }
+"type.enum.variant"              = { modifiers = ["italic"] }
+"ui.background"                  = { bg = "bg0" }
+"ui.bufferline"                  = { fg = "fg1", bg = "bg1" }
+"ui.bufferline.active"           = { fg = "bg0", bg = "fg1" } # Active buffer text on light background
+"ui.bufferline.background"       = { bg = "bg2" }
+"ui.cursor"                      = { fg = "bg1", bg = "bg2" }
+"ui.cursor.insert"               = { fg = "bg1", bg = "fg3" } # Insert mode cursor
+"ui.cursor.normal"               = { fg = "bg1", bg = "gray" }
+"ui.cursor.select"               = { fg = "bg1", bg = "fg3" } # Select mode cursor
+"ui.cursor.match"                = { fg = "fg3", bg = "bg3" }
+"ui.cursor.primary"              = { bg = "fg3", fg = "bg1" }
+"ui.cursor.primary.insert"       = { fg = "bg1", bg = "fg1" }
+"ui.cursor.primary.normal"       = { fg = "bg1", bg = "fg3" }
+"ui.cursor.primary.select"       = { fg = "bg1", bg = "fg3" }
+"ui.cursorline"                  = { bg = "bg0_s" }
+"ui.cursorline.primary"          = { bg = "bg1" }
+"ui.help"                        = { bg = "bg1", fg = "fg1" }
+"ui.linenr"                      = { fg = "bg3" }
+"ui.linenr.selected"             = { fg = "fg1" } # Selected line number
+"ui.menu"                        = { fg = "fg1", bg = "bg2" }
+"ui.menu.selected"               = { fg = "bg2", bg = "fg1", modifiers = ["bold"] } # Selected menu item
+"ui.popup"                       = { bg = "bg1" }
+"ui.picker.header.column"        = { underline.style = "line" }
+"ui.picker.header.column.active" = { modifiers = ["bold"], underline.style = "line" }
+"ui.selection"                   = { bg = "bg2" }
+"ui.selection.primary"           = { bg = "bg3" }
+"ui.statusline"                  = { fg = "fg1", bg = "bg2" }
+"ui.statusline.inactive"         = { fg = "fg4", bg = "bg2" }
+"ui.statusline.insert"           = { fg = "bg1", bg = "fg1", modifiers = ["bold"] } # Statusline insert mode
+"ui.statusline.normal"           = { fg = "bg1", bg = "fg3", modifiers = ["bold"] } # Statusline normal mode
+"ui.statusline.select"           = { fg = "bg1", bg = "fg1", modifiers = ["bold"] } # Statusline select mode
+"ui.text"                        = { fg = "fg1" }
+"ui.text.focus"                  = { fg = "fg1" }
+"ui.text.directory"              = { fg = "fg1" }
+"ui.virtual.inlay-hint"          = { fg = "gray" }
+"ui.virtual.jump-label"          = { fg = "fg1", modifiers = ["bold"] }
+"ui.virtual.ruler"               = { bg = "bg1" }
+"ui.virtual.whitespace"          = "bg2"
+"ui.virtual.wrap" = { fg         = "bg2" }
+"ui.window"                      = { bg = "bg1" }
+"variable"                       = { fg = "fg1" }
+"variable.builtin"               = { fg = "fg1", modifiers = ["italic"] }
+"variable.other.member"          = { fg = "fg1" }
+"variable.parameter"             = { fg = "fg1", modifiers = ["italic"] }
+
+[palette]
+bg0     = "#282828"   # main background
+bg0_s   = "#32302f"
+bg1     = "#3c3836"
+bg2     = "#504945"
+bg3     = "#665c54"
+bg4     = "#7c6f64"
+fg0     = "#fbf1c7"
+fg1     = "#ebdbb2" # main foreground - used for most text
+fg2     = "#d5c4a1"
+fg3     = "#bdae93"
+fg4     = "#a89984"
+gray    = "#928374" # Comment color
+red0    = "#cc241d"    # neutral
+red1    = "#fb4934"    # bright - used for keywords and errors
+green0  = "#98971a"
+green1  = "#b8bb26" # Used for strings and diff additions
+yellow0 = "#d79921"
+yellow1 = "#fabd2f" # Used for warnings and diff deltas
+blue0   = "#458588"
+blue1   = "#83a598"
+purple0 = "#b16286"
+purple1 = "#d3869b"
+aqua0   = "#689d6a"
+aqua1   = "#8ec07c"
+orange0 = "#d65d0e"
+orange1 = "#fe8019" # Used for diagnostics and primary cursor select

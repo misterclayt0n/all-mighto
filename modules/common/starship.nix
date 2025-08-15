@@ -1,0 +1,64 @@
+{ lib, pkgs, ... }:
+{
+  home-manager.sharedModules = [
+    (homeArgs:
+      let
+        hmlib = homeArgs.lib;
+      in {
+        programs.starship = {
+          enable  = true;
+          package = pkgs.starship;
+          settings = builtins.fromTOML ''
+            add_newline  = false
+            format       = "$username@$hostname $directory$character"
+            right_format = """ $nix_shell| $time """
+
+            [username]
+            format      = "$user"
+            style_user  = "bold"
+            style_root  = "bold"
+            show_always = true
+
+            [hostname]
+            ssh_only = false
+            disabled = false
+            style    = "dimmed"
+            format   = "$hostname"
+
+            [directory]
+            format            = "[$path]($style) "
+            truncation_length = 1
+            style             = "blue"
+
+            [character]
+            success_symbol = "[%](bold)"
+            error_symbol   = "[#](bold)"
+            format         = "$symbol "
+
+            [time]
+            disabled    = false
+            format      = "[$time]($style)"
+            time_format = "%H:%M:%S"
+            style       = "italic dimmed white"
+
+            [nix_shell]
+            format      = "[$symbol$state( ($name))]($style) "
+            symbol      = ""
+            style       = "bold blue"
+            impure_msg  = "impure"
+            pure_msg    = "pure"
+            unknown_msg = ""
+            disabled    = false
+            heuristic   = false
+          '';
+        };
+
+        # Generate/refresh the Nu init script at activation time.
+        home.activation.starshipInit = hmlib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          mkdir -p "$HOME/.cache/starship"
+          "${pkgs.starship}/bin/starship" init nu > "$HOME/.cache/starship/init.nu"
+        '';
+      })
+  ];
+}
+
