@@ -6,3 +6,4 @@ alias hget  = http get    --allow-errors
 alias hpost = http post   --allow-errors
 alias hput  = http put    --allow-errors
 alias hdel  = http delete --allow-errors
+alias tree  = eza --tree
