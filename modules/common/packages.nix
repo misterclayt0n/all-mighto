@@ -7,6 +7,7 @@
     go
     iosevka
     wl-clipboard
+    apple-cursor
   ];
 }
 
