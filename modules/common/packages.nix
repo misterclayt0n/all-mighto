@@ -6,6 +6,7 @@
     code-cursor
     go
     iosevka
+    wl-clipboard
   ];
 }
 
