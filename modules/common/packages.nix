@@ -9,6 +9,7 @@
     wl-clipboard
     apple-cursor
     discord
+    eza
   ];
 }
 
