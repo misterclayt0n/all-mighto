@@ -1,3 +1,4 @@
 [
   ./quickshell.nix
+  ./niri.nix
 ]

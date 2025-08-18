@@ -40,8 +40,7 @@
       specialArgs = { inherit inputs; };
 
       modules = [
-        ./hosts/mister/default.nix
-
+        ./hosts/mister/default.nix      
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs   = true;
@@ -51,7 +50,7 @@
             inputs.zen-browser.homeModules.twilight
           ];
 
-          home-manager.users.mister = { pkgs, ... }: {
+          home-manager.users.mister = { ... }: {
             home.stateVersion = "24.11";
           };
         }

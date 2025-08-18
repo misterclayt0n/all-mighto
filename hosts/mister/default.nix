@@ -51,5 +51,12 @@
   system.stateVersion = "24.11";
 
   programs.niri.enable = true;
+
+  xdg.portal.enable = true;
+  
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
+  ];
 }
 
