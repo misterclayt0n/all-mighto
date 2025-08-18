@@ -21,6 +21,8 @@
   services.displayManager.sddm.enable    = true;
   services.desktopManager.plasma6.enable = true;
   services.openssh.enable                = true;
+  services.xserver.videoDrivers          = ["nvidia"];
+  
   services.pipewire = {
     enable            = true;
     alsa.enable       = true;
@@ -38,6 +40,11 @@
   
   hardware.bluetooth.enable      = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  hardware.graphics.enable           = true;
+  hardware.graphics.enable32Bit      = true;
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.open               = false;
 
   environment.systemPackages = with pkgs; [ git vim helix ];
 
