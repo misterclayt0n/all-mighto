@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ] ++ (import ../../modules/common);
+  imports = [ ./hardware-configuration.nix ] ++ (import ../../modules/common ) ++ (import ../../modules/linux );
   
   boot.loader.grub.enable              = true;
   boot.loader.grub.useOSProber         = true;
@@ -49,5 +49,7 @@
   environment.systemPackages = with pkgs; [ git vim helix ];
 
   system.stateVersion = "24.11";
+
+  programs.niri.enable = true;
 }
 

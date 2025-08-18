@@ -10,6 +10,8 @@
     apple-cursor
     discord
     eza
+    alacritty
+    fuzzel
   ];
 }
 

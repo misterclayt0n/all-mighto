@@ -22,6 +22,12 @@
       
       inputs.nixpkgs.follows = "nixpkgs";
     }; 
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, zen-browser, ... }:
@@ -38,7 +44,7 @@
 
         inputs.home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
+          home-manager.useGlobalPkgs   = true;
           home-manager.useUserPackages = true;
 
           home-manager.sharedModules = [
