@@ -66,6 +66,8 @@
   system.stateVersion = "24.11";
 
   programs.niri.enable = true;
+  programs.niri.enable     = true;
+  programs.xwayland.enable = true;
 
   xdg.portal.enable = true;
   
