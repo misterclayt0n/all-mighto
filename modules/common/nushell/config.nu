@@ -1,6 +1,8 @@
 let zvm_bin_path = ($env.HOME | path join ".zvm" "bin")
 $env.PATH = ($env.PATH | prepend $zvm_bin_path)
 
+$env.EDITOR = "hx"
+
 $env.config.show_banner = false
 
 use ~/.cache/starship/init.nu
