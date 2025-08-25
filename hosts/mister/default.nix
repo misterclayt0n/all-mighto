@@ -21,7 +21,7 @@
   services.displayManager.sddm.enable    = true;
   services.desktopManager.plasma6.enable = true;
   services.openssh.enable                = true;
-  services.xserver.videoDrivers          = ["nvidia"];
+  services.xserver.videoDrivers          = ["nvidia" "intel"];
   
   services.pipewire = {
     enable            = true;
@@ -40,13 +40,28 @@
   
   hardware.bluetooth.enable      = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.graphics.enable       = true;
+  hardware.graphics.enable32Bit  = true;
 
-  hardware.graphics.enable           = true;
-  hardware.graphics.enable32Bit      = true;
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.open               = false;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open               = false;
+    nvidiaSettings     = true;
+    package            = config.boot.kernelPackages.nvidiaPackages.stable;
 
-  environment.systemPackages = with pkgs; [ git vim helix ];
+    prime = {
+      offload = {
+        enable           = true;
+        enableOffloadCmd = true;
+      };
+      
+      intelBusId  = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  }; 
+
+  environment.systemPackages   = with pkgs; [ git vim helix ];
+  environment.variables.EDITOR = "hx";
 
   system.stateVersion = "24.11";
 
