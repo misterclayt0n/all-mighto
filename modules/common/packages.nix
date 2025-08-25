@@ -10,6 +10,7 @@
     apple-cursor
     discord
     eza
+    claude-code
     zvm # Fuck you zig for having me to download a version manager in nix because yall can't package correctly for this shit.
   ];
 }
