@@ -68,6 +68,7 @@
   programs.niri.enable = true;
   programs.niri.enable     = true;
   programs.xwayland.enable = true;
+  programs.nix-ld.enable   = true;
 
   xdg.portal.enable = true;
   
