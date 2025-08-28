@@ -1,12 +1,17 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ] ++ (import ../../modules/common ) ++ (import ../../modules/linux );
+  imports = [ ./hardware-configuration.nix ] ++ import ../../modules/common ;
   
   boot.loader.grub.enable              = true;
   boot.loader.grub.useOSProber         = true;
   boot.loader.grub.efiSupport          = true;
   boot.loader.grub.devices             = [ "nodev" ];
   boot.loader.efi.canTouchEfiVariables = true;
+
+  fonts.packages = with pkgs; [
+    iosevka
+    nerd-fonts.monaspace
+  ];
 
   networking.hostName = "mister";
   networking.networkmanager.enable = true;
@@ -30,18 +35,21 @@
     pulse.enable      = true;
   };
 
-  security.rtkit.enable = true;
+  security.rtkit.enable   = true;
+  security.sudo-rs.enable = true;
 
   users.users.mister = {
     description  = "The greatest";
     isNormalUser = true;
-    extraGroups  = [ "wheel" "networkmanager" ];
+    extraGroups  = [ "wheel" "networkmanager" "docker" ];
   };
   
   hardware.bluetooth.enable      = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.graphics.enable       = true;
   hardware.graphics.enable32Bit  = true;
+
+  virtualisation.docker.enable = true;
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -65,9 +73,12 @@
 
   system.stateVersion = "24.11";
 
-  programs.niri.enable     = true;
   programs.xwayland.enable = true;
   programs.nix-ld.enable   = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   xdg.portal.enable = true;
   

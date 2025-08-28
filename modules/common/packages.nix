@@ -5,12 +5,10 @@
     delta
     code-cursor
     go
-    iosevka
     wl-clipboard
     apple-cursor
     discord
     eza
-    claude-code
     gcc
     xwayland-satellite
     slack
@@ -20,6 +18,20 @@
     pciutils
     ouch
     obs-studio
+    steam
+    python3
+    google-chrome
+    zed-editor
+    # codex
+    amp-cli
+    kitty
+    opencode
+    claude-code
+    lazydocker
+    ripgrep
+    cursor-cli
+    perf
+    gemini-cli
   ];
 }
 

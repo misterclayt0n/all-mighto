@@ -14,7 +14,7 @@ in {
   home-manager.sharedModules = [{
     programs.bat = enabled {
       config = {
-        theme = "gruvbox-dark";
+        theme = "gruvbox-light";
         pager = "less --quit-if-one-screen --RAW-CONTROL-CHARS";
       };
     };
