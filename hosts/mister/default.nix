@@ -28,6 +28,10 @@
   services.openssh.enable                = true;
   services.xserver.videoDrivers          = ["nvidia" "intel"];
   
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl"
+  '';
+
   services.pipewire = {
     enable            = true;
     alsa.enable       = true;
@@ -41,7 +45,7 @@
   users.users.mister = {
     description  = "The greatest";
     isNormalUser = true;
-    extraGroups  = [ "wheel" "networkmanager" "docker" ];
+    extraGroups  = [ "wheel" "networkmanager" "docker" "plugdev" ];
   };
   
   hardware.bluetooth.enable      = true;

@@ -26,12 +26,14 @@
     amp-cli
     kitty
     opencode
-    claude-code
+    # claude-code
     lazydocker
     ripgrep
     cursor-cli
     perf
     gemini-cli
+    vial
+    qmk-udev-rules
   ];
 }
 
