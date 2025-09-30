@@ -1,6 +1,8 @@
 let zvm_bin_path = ($env.HOME | path join ".zvm" "bin")
+let local_path   = ($env.HOME | path join ".local" "bin")
 
 $env.PATH = ($env.PATH | prepend $zvm_bin_path)
+$env.PATH = ($env.PATH | prepend $local_path)
 $env.PATH = ($env.PATH | prepend $env.HOME)
 
 $env.EDITOR = "hx"
