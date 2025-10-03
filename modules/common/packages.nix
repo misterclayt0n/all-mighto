@@ -12,7 +12,7 @@
     gcc
     xwayland-satellite
     slack
-    yazi    
+    yazi
     postgresql
     zvm # Fuck you zig for having me to download a version manager in nix because yall can't package correctly for this shit.
     pciutils
@@ -35,6 +35,14 @@
     vial
     qmk-udev-rules
     wine64Packages.stable
+
+    # DankMaterialShell dependencies
+    mate.mate-polkit
+    hyprpicker
+    jq
+    grim
+    slurp
+    grimblast
   ];
 }
 

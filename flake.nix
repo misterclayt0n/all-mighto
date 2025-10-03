@@ -52,18 +52,24 @@
         {
           home-manager.useGlobalPkgs   = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
 
           home-manager.sharedModules = [
             inputs.zen-browser.homeModules.twilight
           ];
 
-          home-manager.users.mister = { ... }: {
+          home-manager.users.mister = { pkgs, ... }: {
             imports = [
               inputs.dank-material-shell.homeModules.dankMaterialShell.default
               inputs.dank-material-shell.homeModules.dankMaterialShell.niri
             ];
 
-            programs.dankMaterialShell.enable = true;
+            programs.dankMaterialShell = {
+              enable = true;
+              enableSystemd = true;
+            };
+
+            services.network-manager-applet.enable = true;
 
             home.stateVersion = "24.11";
           };

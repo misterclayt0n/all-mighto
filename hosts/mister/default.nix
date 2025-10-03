@@ -11,6 +11,9 @@
   fonts.packages = with pkgs; [
     iosevka
     nerd-fonts.monaspace
+    inter
+    material-symbols
+    fira-code
   ];
 
   networking.hostName = "mister";
