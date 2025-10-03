@@ -81,6 +81,7 @@
 
   programs.xwayland.enable = true;
   programs.nix-ld.enable   = true;
+  programs.niri.enable     = true;
   programs.appimage = {
     enable = true;
     binfmt = true;

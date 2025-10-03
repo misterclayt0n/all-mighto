@@ -19,9 +19,21 @@
 
    fenix = {
       url = "github:nix-community/fenix";
-      
+
       inputs.nixpkgs.follows = "nixpkgs";
-    }; 
+    };
+
+    dank-material-shell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, zen-browser, ... }:
@@ -34,7 +46,8 @@
       specialArgs = { inherit inputs; };
 
       modules = [
-        ./hosts/mister/default.nix      
+        ./hosts/mister/default.nix
+        inputs.niri.nixosModules.niri
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs   = true;
@@ -45,6 +58,13 @@
           ];
 
           home-manager.users.mister = { ... }: {
+            imports = [
+              inputs.dank-material-shell.homeModules.dankMaterialShell.default
+              inputs.dank-material-shell.homeModules.dankMaterialShell.niri
+            ];
+
+            programs.dankMaterialShell.enable = true;
+
             home.stateVersion = "24.11";
           };
         }
