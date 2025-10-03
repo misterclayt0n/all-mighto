@@ -34,6 +34,7 @@
     gemini-cli
     vial
     qmk-udev-rules
+    wine64Packages.stable
   ];
 }
 

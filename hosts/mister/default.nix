@@ -22,11 +22,13 @@
 
   nixpkgs.config.allowUnfree = true;
   
-  services.pulseaudio.enable             = false;
-  services.displayManager.sddm.enable    = true;
-  services.desktopManager.plasma6.enable = true;
-  services.openssh.enable                = true;
-  services.xserver.videoDrivers          = ["nvidia" "intel"];
+  services.pulseaudio.enable                    = false;
+  services.displayManager.sddm.enable         = true;
+  services.desktopManager.plasma6.enable      = true;
+  # services.displayManager.cosmic-greeter.enable = true;
+  # services.desktopManager.cosmic.enable         = true;
+  services.openssh.enable                       = true;
+  services.xserver.videoDrivers                 = ["nvidia" "intel"];
   
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl"
