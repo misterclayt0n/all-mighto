@@ -25,7 +25,7 @@
     # codex
     amp-cli
     kitty
-    opencode
+    # opencode
     # claude-code
     lazydocker
     ripgrep
@@ -43,6 +43,15 @@
     grim
     slurp
     grimblast
+
+    fastfetch
+    emacs
+    nodejs
+    koreader
+    neovim
+    bun
+    uv
+    hyperfine
   ];
 }
 

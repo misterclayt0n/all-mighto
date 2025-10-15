@@ -58,18 +58,16 @@
             inputs.zen-browser.homeModules.twilight
           ];
 
-          home-manager.users.mister = { pkgs, ... }: {
+          home-manager.users.mister = { ... }: {
             imports = [
               inputs.dank-material-shell.homeModules.dankMaterialShell.default
               inputs.dank-material-shell.homeModules.dankMaterialShell.niri
             ];
 
-            programs.dankMaterialShell = {
-              enable = true;
-              enableSystemd = true;
-            };
-
-            services.network-manager-applet.enable = true;
+            # programs.dankMaterialShell = {
+            #   enable = true;
+            #   enableSystemd = true;
+            # };
 
             home.stateVersion = "24.11";
           };

@@ -13,6 +13,21 @@
         editor = {
           shell = [ "nu" "-c" ];
           file-picker.hidden = false;
+
+          inline-diagnostics = {
+            cursor-line = "warning";
+          };
+          
+          indent-guides = {
+            character = "▏";
+            render = true;
+          };
+
+          cursor-shape = {
+            insert = "bar";
+            normal = "block";
+            select = "underline";
+          };
         };
 
         keys = {

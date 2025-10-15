@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 let
   enabled = attrs: { enable = true; } // attrs;
 in {
@@ -14,7 +14,7 @@ in {
   home-manager.sharedModules = [{
     programs.bat = enabled {
       config = {
-        theme = "gruvbox-light";
+        theme = "Nord";
         pager = "less --quit-if-one-screen --RAW-CONTROL-CHARS";
       };
     };
