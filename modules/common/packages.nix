@@ -52,6 +52,8 @@
     bun
     uv
     hyperfine
+
+    desmume
   ];
 }
 

@@ -9,5 +9,5 @@
   ./git.nix
   ./packages.nix
   ./rust.nix
-  ./starship.nix
+  # ./starship.nix
 ]

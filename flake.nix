@@ -34,6 +34,12 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, zen-browser, ... }:
@@ -60,14 +66,22 @@
 
           home-manager.users.mister = { ... }: {
             imports = [
+              inputs.vicinae.homeManagerModules.default  # Disabled: crashes on KDE/Wayland (Qt compatibility issue - see github.com/vicinaehq/vicinae/issues/576)
               inputs.dank-material-shell.homeModules.dankMaterialShell.default
               inputs.dank-material-shell.homeModules.dankMaterialShell.niri
             ];
 
-            # programs.dankMaterialShell = {
-            #   enable = true;
-            #   enableSystemd = true;
-            # };
+            programs.dankMaterialShell = {
+              enable = true;
+
+              niri = {
+                enableSpawn = true;
+              };
+            };
+
+            services.vicinae = {
+              enable = true;
+            };
 
             home.stateVersion = "24.11";
           };
