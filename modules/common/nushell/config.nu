@@ -1,25 +1,5 @@
+use std/clip
 use std null_device
-
-let zvm_bin_path = ($env.HOME | path join ".zvm" "bin")
-let local_path   = ($env.HOME | path join ".local" "bin")
-let npm_path   = ($env.HOME | path join ".npm-global" "bin")
-
-$env.PATH = ($env.PATH | prepend $zvm_bin_path)
-$env.PATH = ($env.PATH | prepend $local_path)
-$env.PATH = ($env.PATH | prepend $npm_path)
-$env.PATH = ($env.PATH | prepend $env.HOME)
-
-$env.EDITOR = "hx"
-
-$env.config.show_banner = false
-
-# use ~/.cache/starship/init.nu
-
-alias hget  = http get    --allow-errors
-alias hpost = http post   --allow-errors
-alias hput  = http put    --allow-errors
-alias hdel  = http delete --allow-errors
-alias tree  = eza --tree
 
 $env.config.history.file_format = "sqlite"
 $env.config.history.isolation = false
@@ -32,7 +12,7 @@ $env.config.rm.always_trash = false
 
 $env.config.recursion_limit = 100
 
-$env.config.edit_mode = "emacs"
+$env.config.edit_mode = "vi"
 
 $env.config.cursor_shape.emacs = "line"
 $env.config.cursor_shape.vi_insert = "line"
@@ -52,7 +32,7 @@ $env.config.use_kitty_protocol = true
 $env.config.shell_integration.osc2 = true
 $env.config.shell_integration.osc7 = true
 $env.config.shell_integration.osc8 = true
-$env.config.shell_integration.osc9_9 = false
+$env.config.shell_integration.osc9_9 = true
 $env.config.shell_integration.osc133 = true
 $env.config.shell_integration.osc633 = true
 $env.config.shell_integration.reset_application_mode = true
@@ -102,7 +82,7 @@ $env.config.hooks.pre_execution = [
   {||
     commandline
     | str trim
-    | if ($in | is-not-empty) { print $"(ansi title)($in) — nu" }
+    | if ($in | is-not-empty) { print $"(ansi title)($in) — nu(char bel)" }
   }
 ]
 
@@ -180,72 +160,78 @@ do --env {
   ]: nothing -> string {
     let code = $env.LAST_EXIT_CODE
 
-    let jj_workspace_root = try {
-      jj workspace root err> $null_device
-    } catch {
-      ""
-    }
+    let body = do {
+      mut body = []
 
-    let hostname = if ($env.SSH_CONNECTION? | is-not-empty) {
-      let hostname = try {
-        hostname
-      } catch {
-        "remote"
+      # SSH INDICATOR `@hostname`
+      if ($env.SSH_CONNECTION? | is-not-empty) {
+        let hostname = try {
+          hostname
+        } catch {
+          "remote"
+        }
+
+        $body ++= [ $"(ansi light_green_bold)@($hostname)" ]
       }
 
-      $"(ansi light_green_bold)@($hostname)(ansi reset) "
-    } else {
-      ""
-    }
+      # PATH OR JJ PROJECT `~/Downloads` or `ncc -> modules`
+      # Case insensitive filesystems strike again!
+      # https://github.com/nushell/nushell/issues/16205
+      let pwd = pwd | path expand
 
-    let nix_shell_suffix = if ($env.IN_NIX_SHELL? | is-not-empty) {
-      $" | (ansi light_blue_bold)nix(ansi reset)"
-    } else {
-      ""
-    }
-
-    # https://github.com/nushell/nushell/issues/16205
-    #
-    # Case insensitive filesystems strike again!
-    let pwd = pwd | path expand
-
-    let body = if ($jj_workspace_root | is-not-empty) {
-      let subpath = $pwd | path relative-to $jj_workspace_root
-      let subpath = if ($subpath | is-not-empty) {
-        $"(ansi magenta_bold) → (ansi reset)(ansi blue)($subpath)"
+      let jj_workspace_root = try {
+        jj workspace root err> $null_device
       }
 
-      $"($hostname)(ansi light_yellow_bold)($jj_workspace_root | path basename)($subpath)(ansi reset)($nix_shell_suffix)"
-    } else {
-      let pwd = if ($pwd | str starts-with $env.HOME) {
-        "~" | path join ($pwd | path relative-to $env.HOME)
+      $body ++= [ (if $jj_workspace_root != null {
+        let subpath = $pwd | path relative-to $jj_workspace_root
+        let subpath = if ($subpath | is-not-empty) {
+          $" (ansi magenta_bold)→(ansi reset) (ansi blue)($subpath)"
+        }
+
+        $"(ansi light_yellow_bold)($jj_workspace_root | path basename)($subpath)"
       } else {
-        $pwd
+        let pwd = if ($pwd | str starts-with $env.HOME) {
+          "~" | path join ($pwd | path relative-to $env.HOME)
+        } else {
+          $pwd
+        }
+
+        $"(ansi cyan)($pwd)"
+      }) ]
+
+      $body | str join $"(ansi reset) "
+    }
+
+    let prefix = do {
+      mut prefix = []
+
+      # EXIT CODE
+      if $code != 0 {
+        $prefix ++= [ $"(ansi light_red_bold)($code)" ]
       }
 
-      $"($hostname)(ansi cyan)($pwd)(ansi reset)($nix_shell_suffix)"
+      # COMMAND DURATION
+      let command_duration = ($env.CMD_DURATION_MS | into int) * 1ms
+      if $command_duration > 2sec {
+        $prefix ++= [ $"(ansi light_magenta_bold)($command_duration)" ]
+      }
+
+      $"(ansi light_yellow_bold)($left_char)($prefix | each { $'┫($in)(ansi light_yellow_bold)┣' } | str join '━')━(ansi reset)"
     }
 
-    let command_duration = ($env.CMD_DURATION_MS | into int) * 1ms
-    let command_duration = if $command_duration <= 2sec {
-      ""
-    } else {
-      $"┫(ansi light_magenta_bold)($command_duration)(ansi light_yellow_bold)┣━"
+    let suffix = do {
+      mut suffix = []
+
+      # NIX SHELL
+      if ($env.IN_NIX_SHELL? | is-not-empty) {
+        $suffix ++= [ $"(ansi light_blue_bold)nix" ]
+      }
+
+      $suffix | each { $'(ansi light_yellow_bold)•(ansi reset) ($in)(ansi reset)' } | str join " "
     }
 
-    let exit_code = if $code == 0 {
-      ""
-    } else {
-      $"┫(ansi light_red_bold)($code)(ansi light_yellow_bold)┣━"
-    }
-
-    let middle = if $command_duration == "" and $exit_code == "" {
-      "━"
-    } else {
-      ""
-    }
-
-    $"(ansi light_yellow_bold)($left_char)($exit_code)($middle)($command_duration)(ansi reset) ($body)(char newline)"
+    ([ $prefix, $body, $suffix ] | str join " ") + (char newline)
   }
 
   $env.PROMPT_INDICATOR = $"(ansi light_yellow_bold)┃(ansi reset) "
