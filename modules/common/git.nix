@@ -4,11 +4,11 @@
     home.packages = with pkgs; [ git gh ];
 
     programs.git = {
-      enable    = true;
-      userName  = "misterclayt0n";
-      userEmail = "daviarantes13@gmail.com";
+      enable               = true;
+      settings.user.email  = "misterclayt0n";
+      settings.user.name   = "daviarantes13@gmail.com";
 
-      extraConfig = {
+      settings = {
         init.defaultBranch = "main";
         color.ui           = "auto";
         core.editor        = "hx";

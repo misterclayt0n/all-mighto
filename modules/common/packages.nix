@@ -23,8 +23,8 @@
     google-chrome
     zed-editor
     # codex
-    amp-cli
-    kitty
+    # amp-cli
+    # kitty
     # opencode
     # claude-code
     lazydocker
@@ -52,6 +52,7 @@
     bun
     uv
     hyperfine
+    greetd
 
     desmume
   ];

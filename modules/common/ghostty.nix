@@ -7,7 +7,8 @@
       settings = {
         font-family       = "Iosevka";
         command           = "bash -l -c nu";
-        theme             = "Iceberg Dark";
+        # theme             = "config-dankcolors";
+        config-file       = "~/.config/ghostty/config-dankcolors";
         # window-decoration = "false";
         gtk-titlebar      = false;
         keybind = [

@@ -26,13 +26,46 @@
   nixpkgs.config.allowUnfree = true;
   
   services.pulseaudio.enable                    = false;
-  services.displayManager.sddm.enable         = true;
-  services.desktopManager.plasma6.enable      = true;
-  # services.displayManager.cosmic-greeter.enable = true;
+  # services.displayManager.sddm.enable         = true;
+  # services.desktopManager.plasma6.enable      = true;
+  services.displayManager.cosmic-greeter.enable = true;
   # services.desktopManager.cosmic.enable         = true;
   services.openssh.enable                       = true;
   services.xserver.videoDrivers                 = ["nvidia" "intel"];
-  
+
+# services.greetd = let
+#     niri-config = pkgs.writeText "niri-config" ''
+# hotkey-overlay {
+#     skip-at-startup
+# }
+# environment {
+#     GTK_USE_PORTAL "0"
+#     GDK_DEBUG "no-portals"
+# }
+
+# // other settings
+
+# // spawn-at-startup "sh" "-c" "${pkgs.greetd.regreet}/bin/regreet; pkill -f niri"
+# spawn-at-startup "sh" "-c" "/etc/xdg/quickshell/dms-greeter/Modules/Greetd/assets/dms-greeter --command niri"
+# '';
+#   in {
+#     enable = true;
+#     settings = {
+#       default_session = {
+#         command = "niri -c ${niri-config}";
+#         user = "greeter";
+#       };
+#     };
+#   };
+# programs.regreet.enable = true;  
+
+# services.greetd = {
+  # enable = true;
+  # settings.default_session = {
+    # user = "greeter";
+    # command = "sh /etc/xdg/quickshell/dms-greeter/Modules/Greetd/assets/dms-greeter --command niri";
+  # };
+# };
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl"
   '';

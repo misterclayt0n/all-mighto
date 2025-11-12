@@ -1,6 +1,27 @@
 use std/clip
 use std null_device
 
+let zvm_bin_path = ($env.HOME | path join ".zvm" "bin")
+let local_path   = ($env.HOME | path join ".local" "bin")
+let npm_path   = ($env.HOME | path join ".npm-global" "bin")
+
+$env.PATH = ($env.PATH | prepend $zvm_bin_path)
+$env.PATH = ($env.PATH | prepend $local_path)
+$env.PATH = ($env.PATH | prepend $npm_path)
+$env.PATH = ($env.PATH | prepend $env.HOME)
+
+$env.EDITOR = "hx"
+
+$env.config.show_banner = false
+
+# use ~/.cache/starship/init.nu
+
+alias hget  = http get    --allow-errors
+alias hpost = http post   --allow-errors
+alias hput  = http put    --allow-errors
+alias hdel  = http delete --allow-errors
+alias tree  = eza --tree
+
 $env.config.history.file_format = "sqlite"
 $env.config.history.isolation = false
 $env.config.history.max_size = 10_000_000
@@ -12,7 +33,7 @@ $env.config.rm.always_trash = false
 
 $env.config.recursion_limit = 100
 
-$env.config.edit_mode = "vi"
+$env.config.edit_mode = "emacs"
 
 $env.config.cursor_shape.emacs = "line"
 $env.config.cursor_shape.vi_insert = "line"

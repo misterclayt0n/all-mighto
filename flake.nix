@@ -23,20 +23,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dank-material-shell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-
+    dgop = {
+      url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    dsearch = {
+      url = "github:AvengeMedia/danksearch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dms-cli = {
+      url = "github:AvengeMedia/danklinux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dankMaterialShell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.dgop.follows = "dgop";
+      inputs.dms-cli.follows = "dms-cli";
     };
 
     niri = {
       url = "github:sodiboo/niri-flake";
-
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    vicinae = {
-      url = "github:vicinaehq/vicinae";
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -53,8 +63,8 @@
 
       modules = [
         ./hosts/mister/default.nix
-        inputs.niri.nixosModules.niri
         inputs.home-manager.nixosModules.home-manager
+        # inputs.niri.nixosModules.niri
         {
           home-manager.useGlobalPkgs   = true;
           home-manager.useUserPackages = true;
@@ -66,22 +76,22 @@
 
           home-manager.users.mister = { ... }: {
             imports = [
-              inputs.vicinae.homeManagerModules.default  # Disabled: crashes on KDE/Wayland (Qt compatibility issue - see github.com/vicinaehq/vicinae/issues/576)
-              inputs.dank-material-shell.homeModules.dankMaterialShell.default
-              inputs.dank-material-shell.homeModules.dankMaterialShell.niri
+              inputs.niri.homeModules.niri
+              inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+              inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+              inputs.dsearch.homeModules.default
             ];
 
-            programs.dankMaterialShell = {
+            # programs.niri.enable = true;
+            programs.dankMaterialShell = {              
               enable = true;
-
-              niri = {
-                enableSpawn = true;
-              };
+              # niri = {
+                # enableKeybinds = true;  # Automatic keybinding configuration
+                # enableSpawn = true;
+              # };
             };
 
-            services.vicinae = {
-              enable = true;
-            };
+            programs.dsearch.enable = true;
 
             home.stateVersion = "24.11";
           };
