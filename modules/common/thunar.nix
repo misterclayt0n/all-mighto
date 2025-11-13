@@ -1,19 +1,14 @@
-{ config, lib, pkgs, ... }: let
-  inherit (lib) enabled merge mkIf;
-in merge <| mkIf config.isDesktop {
-  programs.thunar = enabled {
-    plugins = [
-      pkgs.xfce.thunar-archive-plugin
-      pkgs.xfce.thunar-media-tags-plugin
-      pkgs.xfce.thunar-volman
+{ pkgs, ... }: {
+  home-manager.sharedModules = [{
+    home.packages = with pkgs; [
+      xfce.thunar
+      xfce.thunar-archive-plugin
+      xfce.thunar-media-tags-plugin
+      xfce.thunar-volman
+      kdePackages.ark
+      ffmpegthumbnailer
+      libgsf
+      xfce.tumbler   # installed only; no HM service for tumbler
     ];
-  };
-
-  environment.systemPackages = [
-    pkgs.ark
-    pkgs.ffmpegthumbnailer
-    pkgs.libgsf
-
-    pkgs.xfce.tumbler
-  ];
+  }];
 }
