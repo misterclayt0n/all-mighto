@@ -55,6 +55,7 @@
     greetd
 
     desmume
+    kdePackages.dolphin
   ];
 }
 
