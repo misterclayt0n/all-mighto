@@ -1,6 +1,11 @@
 {
   description = "Mister's private NixOS configuration";
 
+  nixConfig = {
+    extra-substituters = "https://niri.cachix.org";
+    extra-trusted-public-keys = "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=";
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -50,9 +55,17 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    the-editor.url = "github:misterclayt0n/the-editor";
+    
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, zen-browser, ... }:
+  outputs = inputs @ { self, nixpkgs, the-editor, ... }:
   let
     system = "x86_64-linux";
   in {
@@ -64,8 +77,16 @@
       modules = [
         ./hosts/mister/default.nix
         inputs.home-manager.nixosModules.home-manager
-        # inputs.niri.nixosModules.niri
-        {
+        inputs.dankMaterialShell.nixosModules.greeter
+        inputs.niri.nixosModules.niri
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [
+            inputs.niri.overlays.niri
+            (final: prev: {
+              quickshell = inputs.quickshell.packages.${system}.default;
+            })
+          ];
+
           home-manager.useGlobalPkgs   = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
@@ -76,26 +97,36 @@
 
           home-manager.users.mister = { ... }: {
             imports = [
-              inputs.niri.homeModules.niri
               inputs.dankMaterialShell.homeModules.dankMaterialShell.default
               inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
               inputs.dsearch.homeModules.default
             ];
 
-            # programs.niri.enable = true;
             programs.dankMaterialShell = {              
               enable = true;
-              # niri = {
-                # enableKeybinds = true;  # Automatic keybinding configuration
-                # enableSpawn = true;
-              # };
             };
 
             programs.dsearch.enable = true;
 
-            home.stateVersion = "24.11";
+            home.packages = [
+              the-editor.packages.${system}.default
+              inputs.quickshell.packages.${system}.default
+            ];
+            home.stateVersion = "24.11"; 
           };
-        }
+
+          programs.dankMaterialShell.greeter = {
+            enable = true;
+            compositor.name = "niri";
+
+            configHome = "/home/mister";
+          };
+
+          programs.niri = {
+            enable = true;
+            package = pkgs.niri-unstable;
+          };
+        })
       ];
     };
   };

@@ -28,10 +28,11 @@
   services.pulseaudio.enable                    = false;
   # services.displayManager.sddm.enable         = true;
   # services.desktopManager.plasma6.enable      = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
   # services.desktopManager.cosmic.enable         = true;
   services.openssh.enable                       = true;
   services.xserver.videoDrivers                 = ["nvidia" "intel"];
+  services.power-profiles-daemon.enable         = true;
 
 # services.greetd = let
 #     niri-config = pkgs.writeText "niri-config" ''
@@ -83,7 +84,7 @@
   users.users.mister = {
     description  = "The greatest";
     isNormalUser = true;
-    extraGroups  = [ "wheel" "networkmanager" "docker" "plugdev" ];
+    extraGroups  = [ "wheel" "networkmanager" "docker" "plugdev" "input" ];
   };
   
   hardware.bluetooth.enable      = true;
@@ -117,7 +118,7 @@
 
   programs.xwayland.enable = true;
   programs.nix-ld.enable   = true;
-  programs.niri.enable     = true;
+  # programs.niri.enable     = true;
   programs.appimage = {
     enable = true;
     binfmt = true;

@@ -22,7 +22,7 @@
     python3
     google-chrome
     zed-editor
-    # codex
+    codex
     # amp-cli
     # kitty
     # opencode
@@ -38,11 +38,15 @@
 
     # DankMaterialShell dependencies
     mate.mate-polkit
+    polkit
     hyprpicker
     jq
     grim
     slurp
     grimblast
+    xdg-desktop-portal-gtk
+    power-profiles-daemon
+    accountsservice
 
     fastfetch
     emacs
@@ -56,6 +60,9 @@
 
     desmume
     kdePackages.dolphin
+    xfce.thunar
+    kdePackages.okular
+    ffmpeg
   ];
 }
 
