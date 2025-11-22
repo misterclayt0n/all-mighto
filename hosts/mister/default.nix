@@ -33,6 +33,7 @@
   services.openssh.enable                       = true;
   services.xserver.videoDrivers                 = ["nvidia" "intel"];
   services.power-profiles-daemon.enable         = true;
+  services.upower.enable                        = true;
 
 # services.greetd = let
 #     niri-config = pkgs.writeText "niri-config" ''
