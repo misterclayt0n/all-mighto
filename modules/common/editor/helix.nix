@@ -8,7 +8,7 @@
         builtins.fromTOML (builtins.readFile ./themes/gruvbox.toml);
 
       settings = {
-        theme = "iceberg-light";
+        theme = "iceberg-dark";
 
         editor = {
           shell = [ "nu" "-c" ];
