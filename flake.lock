@@ -58,26 +58,6 @@
         "type": "github"
       }
     },
-    "dms-cli": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1763078370,
-        "narHash": "sha256-wsYqJlLdRSlJpRE0tIuuPMU6aOyhMdV237rEG/enUxY=",
-        "owner": "AvengeMedia",
-        "repo": "danklinux",
-        "rev": "7a083a0d6d087d41d0bc5077d03e662e1417ce3c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "danklinux",
-        "type": "github"
-      }
-    },
     "dsearch": {
       "inputs": {
         "nixpkgs": [
@@ -322,7 +302,6 @@
       "inputs": {
         "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
-        "dms-cli": "dms-cli",
         "dsearch": "dsearch",
         "fenix": "fenix",
         "home-manager": "home-manager",
