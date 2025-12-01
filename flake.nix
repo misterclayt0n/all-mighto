@@ -22,7 +22,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-   fenix = {
+    fenix = {
       url = "github:nix-community/fenix";
 
       inputs.nixpkgs.follows = "nixpkgs";

@@ -7,7 +7,7 @@
     go
     wl-clipboard
     apple-cursor
-    discord
+    vesktop
     eza
     gcc
     xwayland-satellite

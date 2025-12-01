@@ -35,39 +35,6 @@
   services.power-profiles-daemon.enable         = true;
   services.upower.enable                        = true;
 
-# services.greetd = let
-#     niri-config = pkgs.writeText "niri-config" ''
-# hotkey-overlay {
-#     skip-at-startup
-# }
-# environment {
-#     GTK_USE_PORTAL "0"
-#     GDK_DEBUG "no-portals"
-# }
-
-# // other settings
-
-# // spawn-at-startup "sh" "-c" "${pkgs.greetd.regreet}/bin/regreet; pkill -f niri"
-# spawn-at-startup "sh" "-c" "/etc/xdg/quickshell/dms-greeter/Modules/Greetd/assets/dms-greeter --command niri"
-# '';
-#   in {
-#     enable = true;
-#     settings = {
-#       default_session = {
-#         command = "niri -c ${niri-config}";
-#         user = "greeter";
-#       };
-#     };
-#   };
-# programs.regreet.enable = true;  
-
-# services.greetd = {
-  # enable = true;
-  # settings.default_session = {
-    # user = "greeter";
-    # command = "sh /etc/xdg/quickshell/dms-greeter/Modules/Greetd/assets/dms-greeter --command niri";
-  # };
-# };
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl"
   '';
@@ -119,7 +86,6 @@
 
   programs.xwayland.enable = true;
   programs.nix-ld.enable   = true;
-  # programs.niri.enable     = true;
   programs.appimage = {
     enable = true;
     binfmt = true;
