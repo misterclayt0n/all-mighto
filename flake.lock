@@ -369,11 +369,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1764687289,
-        "narHash": "sha256-CgzXXmHBSQBGwScOowpRtebcWPc61uQsfaMZrLnU47c=",
+        "lastModified": 1764714155,
+        "narHash": "sha256-HrdOlPbPZWLULv31roIEC3gbJvMlZN4p3QX0Czc62mM=",
         "owner": "misterclayt0n",
         "repo": "the-editor",
-        "rev": "af994a75ff66a41593c8781741dd358877e597d1",
+        "rev": "746a0aac8e89035fd8ebaf33f3e480aa86fec544",
         "type": "github"
       },
       "original": {
