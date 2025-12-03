@@ -29,7 +29,7 @@
   # services.displayManager.sddm.enable         = true;
   # services.desktopManager.plasma6.enable      = true;
   # services.displayManager.cosmic-greeter.enable = true;
-  # services.desktopManager.cosmic.enable         = true;
+  services.desktopManager.cosmic.enable         = true;
   services.openssh.enable                       = true;
   services.xserver.videoDrivers                 = ["nvidia" "intel"];
   services.power-profiles-daemon.enable         = true;

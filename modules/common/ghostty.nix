@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home-manager.sharedModules = [{
     programs.ghostty = {
       enable  = true;
-      package = pkgs.ghostty;
+      package = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
       settings = {
         font-family       = "Iosevka";

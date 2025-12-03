@@ -57,6 +57,10 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, the-editor, ... }:
